@@ -1,6 +1,12 @@
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
+    type Query {
+        getUsers: [User!]!
+
+        getUser(id: ID!): User!
+    }
+
     type User {
         id: ID!
         name: String
@@ -23,12 +29,6 @@ const typeDefs = gql`
             catchPhrase: String
             bs: String
         }
-    }
-
-    type Query {
-        getUsers: [User!]!
-
-        getUser(id: ID!): User!
     }
 `;
 
